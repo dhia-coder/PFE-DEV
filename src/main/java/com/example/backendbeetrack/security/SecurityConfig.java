@@ -53,6 +53,9 @@ public class SecurityConfig {
                         .requestMatchers("/auth/register", "/auth/login").permitAll()  // ✅ Allow public access
                         .requestMatchers("/h2-console/**").permitAll() // Optional: if using H2
                         .requestMatchers(HttpMethod.GET, "/ruchers/**").permitAll()
+                        .requestMatchers("/actuator/**", "/prometheus/**").permitAll()
+                        .requestMatchers("/prometheus").permitAll() 
+                         // Only allow /prometheus endpoint
                         .requestMatchers(HttpMethod.POST, "/ruchers/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/recoltes/**").permitAll()
                         .requestMatchers(HttpMethod.POST, "/recoltes/**").permitAll()
